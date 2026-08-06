@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zunivo — Get paid in USDC. One link. One name.</title>
+<meta name="description" content="Zunivo turns USDC on Arc into a proper checkout: payment links with receipts and reconciliation, plus on-chain .agent payment names. Non-custodial, sub-second, verified." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta property="og:title" content="Zunivo — Get paid in USDC. One link. One name." />
+<meta property="og:description" content="Payment links + on-chain payment names on Arc. Non-custodial, sub-second settlement, receipts built in." />
+<meta property="og:image" content="/og.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#101828; --deep:#0C1220; --deep2:#1B2540;
+  --indigo:#3D5AFE; --indigo-soft:#8FA2FF; --mint:#10C48B; --mint-dark:#0B8F63;
+  --mist:#F4F6FB; --card:#FFFFFF; --slate:#5B6474; --slate-l:#98A2B3; --line:#E4E7EF;
+  --disp:"Space Grotesk",Inter,sans-serif; --body:Inter,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--mist);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a{color:var(--indigo);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint-dark);margin-bottom:14px}
+.dark .eyebrow{color:var(--mint)}
+h2{font-family:var(--disp);font-weight:600;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.01em;line-height:1.12;margin-bottom:14px}
+.lead{color:var(--slate);font-size:17px;max-width:62ch}
+.dark .lead{color:var(--slate-l)}
+.btn{display:inline-block;background:var(--indigo);color:#fff;font-weight:600;font-size:15.5px;padding:13px 24px;border-radius:12px;border:0;cursor:pointer}
+.btn:hover{background:#2A3EB1;text-decoration:none}
+.btn.mint{background:var(--mint);color:#06281c}
+.btn.mint:hover{background:#0DA97A}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn.ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(12,18,32,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
+.navbar{display:flex;align-items:center;gap:10px;height:64px}
+.navbar .word{font-family:var(--disp);font-weight:600;font-size:21px;color:#fff}
+nav.links{margin-left:auto;display:flex;align-items:center;gap:26px;font-size:14.5px}
+nav.links a{color:var(--slate-l)}
+nav.links a:hover{color:#fff;text-decoration:none}
+nav.links .btn{padding:9px 18px;font-size:14px}
+
+/* hero */
+.hero{background:linear-gradient(150deg,var(--deep) 0%,var(--deep2) 78%,#22306a 100%);color:#fff;padding:84px 0 96px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(40px,5.4vw,64px);line-height:1.04;letter-spacing:-.015em}
+h1 .m{color:var(--mint)}
+h1 .i{color:var(--indigo-soft)}
+.hero p.sub{margin:22px 0 32px;font-size:18px;color:var(--slate-l);max-width:46ch}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{margin-top:20px;font-size:13px;color:var(--slate-l)}
+.hero-note a{color:var(--slate-l);text-decoration:underline}
+
+/* signature: artifact stack */
+.stack{position:relative;height:470px}
+.artifact{position:absolute;border-radius:16px;box-shadow:0 24px 60px rgba(4,8,20,.45)}
+.a-nft{right:8px;top:0;width:230px}
+.a-receipt{left:0;top:120px;width:290px;background:#fff;color:var(--ink);padding:20px 20px 10px;border:1px solid var(--line)}
+.a-receipt h3{font-family:var(--disp);font-size:16px;font-weight:600;margin-bottom:8px}
+.chip{display:inline-block;background:#E6F9F2;color:var(--mint-dark);font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.rrow{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:7px 0;border-top:1px solid var(--line)}
+.rrow span:first-child{color:var(--slate)}
+.a-link{left:34px;top:36px;background:#161f36;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:11px 18px;font-family:var(--mono);font-size:12.5px;color:#CBD5F5;box-shadow:0 12px 34px rgba(4,8,20,.5)}
+.a-link b{color:var(--mint)}
+.settle-line{position:absolute;left:150px;top:64px;width:190px;height:150px;pointer-events:none}
+@keyframes travel{0%,14%{transform:translate(0,0);opacity:0}18%{opacity:1}64%{transform:translate(-96px,118px);opacity:1}72%,100%{transform:translate(-96px,118px);opacity:0}}
+.dot{animation:travel 4.6s ease-in-out infinite}
+@keyframes flash{0%,62%{opacity:0}68%,84%{opacity:1}94%,100%{opacity:0}}
+.paidflash{animation:flash 4.6s linear infinite}
+@media (prefers-reduced-motion:reduce){.dot,.paidflash{animation:none}.reveal{opacity:1!important;transform:none!important}}
+
+/* facts */
+.facts{background:var(--card);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:34px 28px}
+.fact .n{font-family:var(--mono);font-weight:500;font-size:27px}
+.fact .n em{font-style:normal;color:var(--mint-dark)}
+.fact p{font-size:13px;color:var(--slate);margin-top:2px}
+
+section{padding:88px 0}
+.dark{background:linear-gradient(160deg,var(--deep) 0%,var(--deep2) 100%);color:#fff}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.pillar svg{display:block;margin-bottom:16px}
+.pillar h3{font-family:var(--disp);font-size:19px;font-weight:600;margin-bottom:8px}
+.pillar p{font-size:14.5px;color:var(--slate)}
+.pillar .more{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600}
+
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.col{border-radius:18px;padding:26px}
+.col h3{font-family:var(--disp);font-size:18px;font-weight:600;margin-bottom:14px}
+.col ul{list-style:none}
+.col li{font-size:14.5px;padding:10px 0 10px 28px;position:relative;border-top:1px solid rgba(255,255,255,.1)}
+.col li::before{position:absolute;left:2px;font-family:var(--mono);font-weight:500}
+.col.raw{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);color:var(--slate-l)}
+.col.raw li::before{content:"×";color:#E8A23D}
+.col.zn{background:rgba(61,90,254,.14);border:1px solid rgba(143,162,255,.4);color:#fff}
+.col.zn li::before{content:"✓";color:var(--mint)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px;position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:13px;color:var(--indigo);letter-spacing:.1em}
+.step h3{font-family:var(--disp);font-size:18px;font-weight:600;margin:10px 0 6px}
+.step p{font-size:14.5px;color:var(--slate)}
+.step .demo{margin-top:14px;font-family:var(--mono);font-size:12px;background:var(--mist);border-radius:9px;padding:9px 11px;overflow-wrap:anywhere}
+
+/* names gallery */
+.gallery{display:flex;gap:26px;align-items:flex-start;margin-top:44px;flex-wrap:wrap}
+.cardrow{display:flex;gap:18px}
+.cardrow svg{border-radius:14px;box-shadow:0 18px 44px rgba(4,8,20,.5)}
+.cardrow svg:nth-child(2){transform:translateY(22px)}
+.cardrow svg:nth-child(3){transform:translateY(44px)}
+.names-copy{flex:1;min-width:280px}
+.names-copy ul{list-style:none;margin:16px 0 26px}
+.names-copy li{padding:8px 0 8px 26px;position:relative;font-size:15px;color:var(--slate-l)}
+.names-copy li::before{content:"—";position:absolute;left:0;color:var(--mint)}
+
+/* trust */
+.flow{margin:44px 0 30px}
+.trustlist{list-style:none;max-width:680px}
+.trustlist li{padding:11px 0 11px 30px;position:relative;font-size:15px;border-top:1px solid var(--line)}
+.trustlist li::before{content:"✓";position:absolute;left:2px;color:var(--mint-dark);font-family:var(--mono)}
+.contracts{margin-top:26px;display:grid;gap:10px;max-width:680px}
+.contract{display:flex;justify-content:space-between;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:13.5px;flex-wrap:wrap}
+.contract .mono{font-size:12.5px;color:var(--slate)}
+
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-top:12px}
+summary{cursor:pointer;font-weight:600;font-size:15.5px}
+details p{margin-top:10px;font-size:14.5px;color:var(--slate)}
+
+/* final cta */
+.final{background:var(--indigo);color:#fff;text-align:center;padding:78px 0}
+.final h2{color:#fff}
+.final p{color:#DCE2FF;max-width:52ch;margin:0 auto 30px}
+.final .btn{background:#fff;color:var(--indigo)}
+.final .btn:hover{background:#EDF0FF}
+.final .btn.mint{background:var(--mint);color:#06281c}
+
+footer{background:var(--deep);color:var(--slate-l);padding:40px 0 52px;font-size:13.5px}
+.foot-grid{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+footer nav{margin-left:auto;display:flex;gap:20px}
+footer a{color:var(--slate-l)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:940px){
+  .hero-grid{grid-template-columns:1fr}
+  .stack{height:430px;max-width:420px}
+  .facts .wrap{grid-template-columns:repeat(2,1fr)}
+  .pillars,.steps,.compare{grid-template-columns:1fr}
+  nav.links .hide-m{display:none}
+  .cardrow svg:nth-child(3){display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap navbar">
+    <svg width="32" height="24" viewBox="0 0 152 112" aria-hidden="true"><rect x="20" y="20" width="72" height="14" rx="7" fill="#3D5AFE"/><line x1="82" y1="41" x2="30" y2="81" stroke="#10C48B" stroke-width="14" stroke-linecap="round"/><circle cx="30" cy="81" r="5" fill="#0B8F63"/><rect x="20" y="88" width="72" height="14" rx="7" fill="#3D5AFE"/></svg>
+    <span class="word">zunivo</span>
+    <nav class="links">
+      <a class="hide-m" href="#what">What it does</a>
+      <a class="hide-m" href="#why">Why Zunivo</a>
+      <a class="hide-m" href="#names">Names</a>
+      <a class="hide-m" href="#trust">Trust</a>
+      <a href="http://localhost:5173/names">Mint a name</a>
+      <a class="btn" href="http://localhost:5173/">Launch app</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" style="color:var(--mint)">USDC payments &amp; names · on Arc</p>
+      <h1>Get paid in USDC.<br /><span class="i">One link.</span> <span class="m">One name.</span></h1>
+      <p class="sub">Zunivo turns "send me crypto" into a proper checkout: a link anyone can pay,
+        a <b style="color:#fff">.agent</b> name anyone can remember, and a receipt for every payment.
+        Settled in under a second. Never held by us.</p>
+      <div class="cta-row">
+        <a class="btn" href="http://localhost:5173/">Create a payment link</a>
+        <a class="btn mint" href="http://localhost:5173/names">Mint your name · 1 USDC</a>
+      </div>
+      <p class="hero-note">Live on Arc Testnet · contracts
+        <a href="https://testnet.arcscan.app/address/0x4210D40a9899e42b4946B9dC7E0C35d3cf14Ea55" target="_blank" rel="noreferrer">verified</a> ·
+        zero-custody by construction</p>
+    </div>
+
+    <div class="stack" aria-label="Zunivo artifacts: a payment link, a receipt, a name NFT">
+      <div class="artifact a-link">zunivo.io/pay?oid=60eeafd3 · <b>pay laoban.agent</b></div>
+      <svg class="artifact a-nft" width="230" height="230" viewBox="0 0 500 500" role="img"><title>laoban.agent name NFT</title><rect width="500" height="500" rx="28" fill="#101828" stroke="#2A3450"/><rect x="60" y="72" width="100" height="19" rx="9.5" fill="#3D5AFE"/><line x1="146" y1="101" x2="74" y2="157" stroke="#10C48B" stroke-width="19" stroke-linecap="round"/><circle cx="74" cy="157" r="7" fill="#0B8F63"/><rect x="60" y="166" width="100" height="19" rx="9.5" fill="#3D5AFE"/><text x="60" y="308" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="58" fill="#FFFFFF">laoban</text><text x="60" y="352" font-family="Helvetica,Arial,sans-serif" font-weight="600" font-size="27" fill="#10C48B">.agent</text><rect x="60" y="398" width="120" height="5" rx="2.5" fill="#3D5AFE"/><text x="60" y="438" font-family="Courier,monospace" font-size="15" letter-spacing="3" fill="#98A2B3">ZUNIVO NAMES</text><text x="60" y="462" font-family="Courier,monospace" font-size="13" letter-spacing="3" fill="#5B6474">ON ARC</text></svg>
+      <div class="artifact a-receipt">
+        <h3>Receipt</h3>
+        <span class="chip paidflash">paid</span>
+        <div class="rrow"><span>Amount</span><span class="mono">120.00 USDC</span></div>
+        <div class="rrow"><span>To</span><span class="mono">laoban.agent</span></div>
+        <div class="rrow"><span>Settled</span><span class="mono">0.4 s</span></div>
+        <div class="rrow"><span>Tx</span><span class="mono">0xe44d…c320 ↗</span></div>
+      </div>
+      <svg class="settle-line" width="190" height="150" viewBox="0 0 190 150" aria-hidden="true">
+        <line x1="150" y1="14" x2="54" y2="132" stroke="rgba(255,255,255,.14)" stroke-width="3" stroke-linecap="round"/>
+        <circle class="dot" cx="150" cy="14" r="7" fill="#10C48B"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- FACTS -->
+<div class="facts" aria-label="Key facts">
+  <div class="wrap">
+    <div class="fact"><div class="n">&lt;1<em>s</em></div><p>settlement finality on Arc</p></div>
+    <div class="fact"><div class="n">0</div><p>custody — funds move payer → you in one atomic transaction</p></div>
+    <div class="fact"><div class="n">≤1<em>%</em></div><p>fee, hard-capped in verified contract code (currently 0%)</p></div>
+    <div class="fact"><div class="n">$<em>gas</em></div><p>gas is USDC too — no second token to buy</p></div>
+  </div>
+</div>
+
+<!-- WHAT -->
+<section id="what">
+  <div class="wrap">
+    <p class="eyebrow">What Zunivo does</p>
+    <h2>Three things a transfer can't do</h2>
+    <p class="lead">USDC moves value. Running a business needs more: knowing whose money, for what,
+      whether it's the right amount — and proving it later. Zunivo is that layer.</p>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><rect x="4" y="18" width="26" height="16" rx="8" stroke="#3D5AFE" stroke-width="3"/><rect x="22" y="18" width="26" height="16" rx="8" stroke="#10C48B" stroke-width="3"/></svg>
+        <h3>Payment links</h3>
+        <p>Create an order, share one short link or QR. The payer opens it and pays from any wallet —
+          or with no wallet at all, using a passkey and Face ID. Funds land in your wallet, not ours.</p>
+        <a class="more" href="http://localhost:5173/">Create a link →</a>
+      </div>
+      <div class="pillar reveal">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><rect x="6" y="6" width="40" height="40" rx="8" fill="#101828"/><rect x="14" y="14" width="12" height="3.4" rx="1.7" fill="#3D5AFE"/><line x1="24.5" y1="19" x2="15.5" y2="26" stroke="#10C48B" stroke-width="3.4" stroke-linecap="round"/><rect x="14" y="28" width="12" height="3.4" rx="1.7" fill="#3D5AFE"/><text x="14" y="41" font-family="Helvetica,Arial" font-weight="700" font-size="9" fill="#fff">name</text></svg>
+        <h3>Zunivo Names</h3>
+        <p><b>yourname.agent</b> — an NFT that routes money. Fully on-chain art and metadata, tradable,
+          and payments sent to the name follow whoever holds it. Your address becomes a brand.</p>
+        <a class="more" href="http://localhost:5173/names">Mint yours →</a>
+      </div>
+      <div class="pillar reveal">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><rect x="6" y="8" width="40" height="36" rx="6" stroke="#3D5AFE" stroke-width="3"/><line x1="13" y1="20" x2="39" y2="20" stroke="#E4E7EF" stroke-width="3"/><line x1="13" y1="28" x2="39" y2="28" stroke="#E4E7EF" stroke-width="3"/><path d="M13 36h14" stroke="#E4E7EF" stroke-width="3"/><path d="M31 34l4 4 7-8" stroke="#10C48B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Receipts &amp; reconciliation</h3>
+        <p>Every payment binds to an order on-chain, so matching is automatic: live paid / unpaid status,
+          a shareable receipt page for both sides, and a CSV your accountant will actually accept.</p>
+        <a class="more" href="http://localhost:5173/dashboard">Open the dashboard →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">The honest question</p>
+    <h2>"Why not just send USDC directly?"</h2>
+    <p class="lead">You can. A transfer moves the money — and leaves you doing the bookkeeping by hand.
+      Here's the same payment, both ways.</p>
+    <div class="compare">
+      <div class="col raw reveal">
+        <h3>A raw transfer</h3>
+        <ul>
+          <li>Fifty deposits, one address — which payment was which invoice?</li>
+          <li>Copy a 42-character address by hand and hope</li>
+          <li>Your "receipt" is a transaction hash</li>
+          <li>Who underpaid? Who never paid? Nobody knows</li>
+          <li>New customers need a wallet, gas, and a tutorial</li>
+        </ul>
+      </div>
+      <div class="col zn reveal">
+        <h3>The same payment on Zunivo</h3>
+        <ul>
+          <li>Every payment matches its order automatically</li>
+          <li>Amount and destination locked inside the link — or just say a name</li>
+          <li>A receipt page both sides can keep and share</li>
+          <li>Paid / unpaid live, CSV export for the books</li>
+          <li>No wallet? A passkey and Face ID is enough</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>From "pay me" to reconciled, in three steps</h2>
+    <div class="steps">
+      <div class="step reveal"><h3>Create</h3><p>Enter an amount and a memo. Your wallet — or your .agent name — is the destination. Zunivo issues the order and a short link.</p><span class="demo">zunivo.io/pay?oid=60eeafd3</span></div>
+      <div class="step reveal"><h3>Share</h3><p>Send the link or QR anywhere: an invoice, a chat, a bio. The payer opens it and confirms. Gas is USDC too, and can be sponsored.</p></div>
+      <div class="step reveal"><h3>Settled</h3><p>Money lands in your wallet in under a second. The order flips to paid, the receipt is issued, and your CSV already knows.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NAMES -->
+<section id="names" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Zunivo Names</p>
+    <h2>A name that money answers to</h2>
+    <div class="gallery">
+      <div class="cardrow" aria-label="Example name cards">
+        <svg width="188" height="188" viewBox="0 0 500 500" role="img"><title>alice.agent</title><rect width="500" height="500" rx="28" fill="#101828" stroke="#2A3450"/><rect x="60" y="72" width="100" height="19" rx="9.5" fill="#3D5AFE"/><line x1="146" y1="101" x2="74" y2="157" stroke="#10C48B" stroke-width="19" stroke-linecap="round"/><circle cx="74" cy="157" r="7" fill="#0B8F63"/><rect x="60" y="166" width="100" height="19" rx="9.5" fill="#3D5AFE"/><text x="60" y="308" font-family="Helvetica,Arial" font-weight="700" font-size="58" fill="#fff">alice</text><text x="60" y="352" font-family="Helvetica,Arial" font-weight="600" font-size="27" fill="#10C48B">.agent</text><rect x="60" y="398" width="120" height="5" rx="2.5" fill="#3D5AFE"/><text x="60" y="438" font-family="Courier,monospace" font-size="15" letter-spacing="3" fill="#98A2B3">ZUNIVO NAMES</text></svg>
+        <svg width="188" height="188" viewBox="0 0 500 500" role="img"><title>kobe-shop.agent</title><rect width="500" height="500" rx="28" fill="#101828" stroke="#2A3450"/><rect x="60" y="72" width="100" height="19" rx="9.5" fill="#3D5AFE"/><line x1="146" y1="101" x2="74" y2="157" stroke="#10C48B" stroke-width="19" stroke-linecap="round"/><circle cx="74" cy="157" r="7" fill="#0B8F63"/><rect x="60" y="166" width="100" height="19" rx="9.5" fill="#3D5AFE"/><text x="60" y="308" font-family="Helvetica,Arial" font-weight="700" font-size="42" fill="#fff">kobe-shop</text><text x="60" y="352" font-family="Helvetica,Arial" font-weight="600" font-size="27" fill="#10C48B">.agent</text><rect x="60" y="398" width="120" height="5" rx="2.5" fill="#3D5AFE"/><text x="60" y="438" font-family="Courier,monospace" font-size="15" letter-spacing="3" fill="#98A2B3">ZUNIVO NAMES</text></svg>
+        <svg width="188" height="188" viewBox="0 0 500 500" role="img"><title>pay-me.agent</title><rect width="500" height="500" rx="28" fill="#101828" stroke="#2A3450"/><rect x="60" y="72" width="100" height="19" rx="9.5" fill="#3D5AFE"/><line x1="146" y1="101" x2="74" y2="157" stroke="#10C48B" stroke-width="19" stroke-linecap="round"/><circle cx="74" cy="157" r="7" fill="#0B8F63"/><rect x="60" y="166" width="100" height="19" rx="9.5" fill="#3D5AFE"/><text x="60" y="308" font-family="Helvetica,Arial" font-weight="700" font-size="52" fill="#fff">pay-me</text><text x="60" y="352" font-family="Helvetica,Arial" font-weight="600" font-size="27" fill="#10C48B">.agent</text><rect x="60" y="398" width="120" height="5" rx="2.5" fill="#3D5AFE"/><text x="60" y="438" font-family="Courier,monospace" font-size="15" letter-spacing="3" fill="#98A2B3">ZUNIVO NAMES</text></svg>
+      </div>
+      <div class="names-copy">
+        <ul>
+          <li>The art and metadata are generated by the contract itself — no server, no IPFS, nothing to go dark</li>
+          <li>It's an ERC-721: sell it, gift it, hold it. Payments follow the holder automatically</li>
+          <li>Works everywhere in Zunivo: receive with it, get paid to it, look up your books by it</li>
+          <li>3–20 characters · a-z, 0-9, dashes · first come, first served</li>
+        </ul>
+        <a class="btn mint" href="http://localhost:5173/names">Search your name</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="wrap">
+    <p class="eyebrow">Trust, verifiable</p>
+    <h2>Don't trust our word. Read the contracts.</h2>
+    <p class="lead">Zunivo's rails are two small, verified contracts. Money passes through in one atomic
+      transaction — there is no pooled balance to hack, freeze, or run away with.</p>
+
+    <svg class="flow reveal" width="100%" height="120" viewBox="0 0 760 120" role="img" aria-label="Payer to router to merchant, atomic">
+      <circle cx="70" cy="60" r="34" fill="#fff" stroke="#E4E7EF" stroke-width="2"/>
+      <text x="70" y="65" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#101828">payer</text>
+      <line x1="112" y1="60" x2="300" y2="60" stroke="#3D5AFE" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+      <rect x="304" y="30" width="152" height="60" rx="14" fill="#101828"/>
+      <text x="380" y="56" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#fff">router</text>
+      <text x="380" y="76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#98A2B3">holds nothing</text>
+      <line x1="460" y1="60" x2="648" y2="60" stroke="#10C48B" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+      <circle cx="690" cy="60" r="34" fill="#fff" stroke="#E4E7EF" stroke-width="2"/>
+      <text x="690" y="65" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#101828">you</text>
+      <path d="M112 22 h548" stroke="#98A2B3" stroke-width="1.5"/>
+      <path d="M112 22 v8 M660 22 v8" stroke="#98A2B3" stroke-width="1.5"/>
+      <text x="380" y="14" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5B6474">one atomic transaction</text>
+    </svg>
+
+    <ul class="trustlist">
+      <li>Non-custodial by construction — the router forwards funds in-transaction and can't hold a balance</li>
+      <li>Fee hard-capped at 1% in on-chain code, currently 0% — a promise you can read, not one you take</li>
+      <li>35-test suite with fuzzing and reentrancy probes; Slither static analysis: zero high or medium findings</li>
+      <li>Independent security review scheduled before mainnet</li>
+    </ul>
+
+    <div class="contracts">
+      <div class="contract"><span>ArcPayRouter — payments</span>
+        <a class="mono" href="https://testnet.arcscan.app/address/0x4210D40a9899e42b4946B9dC7E0C35d3cf14Ea55" target="_blank" rel="noreferrer">0x4210…Ea55 ↗</a></div>
+      <div class="contract"><span>ZunivoNames — names registry</span>
+        <a class="mono" href="https://testnet.arcscan.app/address/0x244e0c8bE1Ed59636901F98920413d414B158cc5" target="_blank" rel="noreferrer">0x244e…8cc5 ↗</a></div>
+    </div>
+
+    <div style="margin-top:44px">
+      <p class="eyebrow">Questions</p>
+      <details><summary>Do my customers need a crypto wallet?</summary>
+        <p>No. Any EVM wallet works — Zunivo adds the Arc network for them automatically — or they can pay
+        with no wallet at all: a passkey (Face ID / Touch ID) creates a secure Circle smart account on the spot.</p></details>
+      <details><summary>What does Zunivo cost?</summary>
+        <p>Free during testnet. At mainnet, a protocol fee of up to 1% on payments — the cap is enforced by the
+        contract, not a promise — and 1 USDC to mint a name.</p></details>
+      <details><summary>Why is Zunivo on Arc?</summary>
+        <p>Arc is Circle's chain built for money: USDC is the native gas token and settlement is deterministic and
+        sub-second. It's the first place a stablecoin checkout can feel like a card payment.</p></details>
+      <details><summary>Is a .agent name a real domain?</summary>
+        <p>It's an on-chain payment name, not a DNS domain: an ERC-721 on Arc that any app can resolve
+        permissionlessly. Inside Zunivo it works everywhere you'd otherwise paste an address.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final">
+  <div class="wrap">
+    <h2>Your next payment could reconcile itself.</h2>
+    <p>Create a link in thirty seconds, or claim the name your customers will remember. Both are live on Arc Testnet today.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn" href="http://localhost:5173/">Launch app</a>
+      <a class="btn mint" href="http://localhost:5173/names">Mint your name</a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <svg width="26" height="19" viewBox="0 0 152 112" aria-hidden="true"><rect x="20" y="20" width="72" height="14" rx="7" fill="#3D5AFE"/><line x1="82" y1="41" x2="30" y2="81" stroke="#10C48B" stroke-width="14" stroke-linecap="round"/><circle cx="30" cy="81" r="5" fill="#0B8F63"/><rect x="20" y="88" width="72" height="14" rx="7" fill="#3D5AFE"/></svg>
+    <span>© 2026 Zunivo · non-custodial software, not a money transmitter</span>
+    <nav>
+      <a href="http://localhost:5173/">App</a>
+      <a href="http://localhost:5173/names">Names</a>
+      <a href="https://testnet.arcscan.app/address/0x4210D40a9899e42b4946B9dC7E0C35d3cf14Ea55" target="_blank" rel="noreferrer">ArcScan</a>
+      <a href="https://github.com/zunivo" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://x.com/zunivo" target="_blank" rel="noreferrer">X</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es) => {
+    for (const e of es) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
