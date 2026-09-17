@@ -220,7 +220,7 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
       <a class="btn primary" href="https://github.com/zunivo-pay">See an agent pay (402)</a>
       <a class="btn ghost" href="https://app.zunivo.io/">Try the human side</a>
     </div>
-    <p class="hero-note">live on arc testnet · five verified contracts · <a href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">open source ↗</a></p>
+    <p class="hero-note">live on arc mainnet · five verified contracts · <a href="https://testnet.zunivo.io/" target="_blank" rel="noreferrer">testnet sandbox ↗</a> · <a href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">open source ↗</a></p>
 
     <!-- blueprint payment diagram -->
     <div class="diagram rv">
@@ -295,10 +295,10 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
       and retries with proof — discover, pay, consume, all autonomous. Three lines of code turn any API into
       something a machine can pay for. Every call leaves a settled, auditable on-chain receipt.</p>
     <div class="term rv">
-      <div class="term-bar"><span class="ref">zunivo.runtime | ref-402</span><em>agent · arc testnet</em></div>
+      <div class="term-bar"><span class="ref">zunivo.runtime | ref-402</span><em>agent · arc mainnet</em></div>
       <div class="term-body" id="termBody"><span class="cursor"></span></div>
     </div>
-    <p class="after rv">Every line above is a real flow running on Arc Testnet today — an autonomous agent
+    <p class="after rv">Every line above is a real flow running on Arc mainnet today — an autonomous agent
       discovering a price, paying from its own wallet, collecting an auditable receipt.
       No card networks. No human in the loop.</p>
   </div>
@@ -374,17 +374,18 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
       There is nothing for anyone — including us — to hack, freeze, or run away with.</p>
     <div class="registry rv">
       <div class="rrowc"><span class="ref">ref. 01 <b>· verified</b></span><span>ArcPayRouter — order-bound settlement</span>
-        <a class="mono" href="https://testnet.arcscan.app/address/0x4210D40a9899e42b4946B9dC7E0C35d3cf14Ea55" target="_blank" rel="noreferrer">0x4210…Ea55 ↗</a></div>
+        <a class="mono" href="https://arc.etherscan.io/address/0xAa8c293495446d04a51A32e2e4557EDE3BfC7119" target="_blank" rel="noreferrer">0xAa8c…7119 ↗</a></div>
       <div class="rrowc"><span class="ref">ref. 02 <b>· verified</b></span><span>ZunivoNames — names registry</span>
-        <a class="mono" href="https://testnet.arcscan.app/address/0x244e0c8bE1Ed59636901F98920413d414B158cc5" target="_blank" rel="noreferrer">0x244e…8cc5 ↗</a></div>
+        <a class="mono" href="https://arc.etherscan.io/address/0x824218447E8Dbf10E535dC7fB6ab7b68105c7dDa" target="_blank" rel="noreferrer">0x8242…7dDa ↗</a></div>
       <div class="rrowc"><span class="ref">ref. 03 <b>· verified</b></span><span>ZunivoScheduledSends — committed sends</span>
-        <a class="mono" href="https://testnet.arcscan.app/address/0xad5121668867a234Bd1f7D62eC40D09Ee3f47c02" target="_blank" rel="noreferrer">0xad51…47c02 ↗</a></div>
+        <a class="mono" href="https://arc.etherscan.io/address/0x8d2193555Ad7C3f2EEfe66Ede0F8A3477774050c" target="_blank" rel="noreferrer">0x8d21…050c ↗</a></div>
       <div class="rrowc"><span class="ref">ref. 04 <b>· verified</b></span><span>ZunivoSplit — revenue splits</span>
-        <a class="mono" href="https://testnet.arcscan.app/address/0x12F21A2AC582061598445874c6C5f4F3bcE53eCF" target="_blank" rel="noreferrer">0x12F2…3eCF ↗</a></div>
+        <a class="mono" href="https://arc.etherscan.io/address/0x3c07F894A14AA080191b2Cc95dd4d0BfA31E5715" target="_blank" rel="noreferrer">0x3c07…5715 ↗</a></div>
       <div class="rrowc"><span class="ref">ref. 05 <b>· verified</b></span><span>ZunivoAgentRecords — agent service discovery</span>
-        <a class="mono" href="https://testnet.arcscan.app/address/0x4f405f0aA04FD6FaE0838DeE6FD184B1f3cC306B" target="_blank" rel="noreferrer">0x4f40…306B ↗</a></div>
+        <a class="mono" href="https://arc.etherscan.io/address/0xFE9fca63CaA64FBf0B2F089786A706f0C99dCbB1" target="_blank" rel="noreferrer">0xFE9f…CbB1 ↗</a></div>
     </div>
-    <p class="trust-note rv">Full source, the 78-test adversarial suite, and our security review live at
+    <p class="trust-note rv">Mainnet v1.3 · Arc chainId 5042 · verified on ArcScan. The testnet sandbox set is listed in the docs.
+      Full source, the 91-test adversarial suite, and our security review live at
       <a href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">github.com/zunivo-pay ↗</a></p>
   </div>
 </section>
@@ -414,7 +415,7 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
       no humans.</p></details>
     <details class="rv"><summary>What does it cost?</summary>
       <p>Gas on Arc is a fraction of a cent, paid in USDC. The protocol fee is hard-capped at 1% in immutable
-      code and is currently 0%.</p></details>
+      code and is currently 0.5% on mainnet (0% on the testnet sandbox). A <code>.agent</code> name is 1 USDC on mainnet.</p></details>
   </div>
 </section>
 
@@ -426,7 +427,7 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
   <div class="wrap">
     <span class="tag rv">start now</span>
     <h2 class="rv">Get paid. Send.<br />Commit. Split.</h2>
-    <p class="rv">All on rails you can read — live on Arc Testnet today, non-custodial by construction.</p>
+    <p class="rv">All on rails you can read — live on Arc mainnet today, non-custodial by construction.</p>
     <div class="cta rv" style="justify-content:center">
       <a class="btn primary" href="https://app.zunivo.io/">Launch the app</a>
       <a class="btn ghost" href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">Read the code</a>
@@ -451,7 +452,7 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
       <a href="https://docs.zunivo.io" target="_blank" rel="noreferrer">Docs</a>
       <a href="https://www.npmjs.com/package/zunivo-x402-arc" target="_blank" rel="noreferrer">npm · x402-arc</a>
       <a href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://testnet.arcscan.app/address/0x4210D40a9899e42b4946B9dC7E0C35d3cf14Ea55" target="_blank" rel="noreferrer">ArcScan</a>
+      <a href="https://arc.etherscan.io/address/0xAa8c293495446d04a51A32e2e4557EDE3BfC7119" target="_blank" rel="noreferrer">ArcScan</a>
     </div>
     <div class="fcol">
       <h4>connect</h4>
