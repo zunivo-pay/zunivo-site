@@ -39,7 +39,7 @@ details:last-of-type{border-bottom:1px solid var(--line)}
 summary{cursor:pointer;font-weight:600;font-size:16px}
 details p{margin-top:8px;color:var(--ink2);font-size:15px}
 .shot{margin-top:22px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.shot img{display:block;width:100%}
+.shot img{display:block;width:100%;height:auto}
 footer{padding:36px 0 48px;font-size:14px;color:var(--mute)}
 footer .cols{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:14px}
 footer a{color:var(--ink2)}
