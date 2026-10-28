@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Service · zunivo</title>
+<meta name="description" content="Terms for using the zunivo website, app, API and contracts." />
+<link rel="canonical" href="https://zunivo.io/terms" />
+<meta property="og:title" content="Terms of Service · zunivo" />
+<meta property="og:description" content="Terms for using the zunivo website, app, API and contracts." />
+<meta property="og:image" content="https://zunivo.io/og.png" />
+<meta property="og:url" content="https://zunivo.io/terms" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="/"><svg viewBox="0 0 152 112" aria-hidden="true"><rect x="20" y="20" width="72" height="14" rx="7" fill="#2f4fd6"/><line x1="82" y1="41" x2="30" y2="81" stroke="#0b7a52" stroke-width="14" stroke-linecap="round"/><rect x="20" y="88" width="72" height="14" rx="7" fill="#2f4fd6"/></svg>zunivo</a>
+  <nav>
+    <a href="/#agents">Agents</a>
+    <a href="/#app" class="hide">App</a>
+    <a href="/#contracts">Contracts</a>
+    <a href="https://docs.zunivo.io">Docs</a>
+    <a href="/about" class="hide">About</a>
+    <a class="cta" href="https://app.zunivo.io/">Launch app</a>
+  </nav>
+</div></header>
+
+
+<section class="doc"><div class="wrap">
+  <h1>Terms of Service</h1>
+  <p class="meta">Effective October 28, 2026</p>
+  <p>These terms cover zunivo.io, app.zunivo.io, api.zunivo.io, the zunivo-x402-arc and zunivo-mcp packages, and the zunivo smart contracts on Arc (together, "the service"). zunivo is operated by an individual based in Toronto, Canada ("we"). By using the service you agree to these terms. If you don't agree, don't use it.</p>
+
+  <h2>1. What the service is</h2>
+  <p>zunivo is software. The app and the packages build transactions that you sign with your own wallet and that are executed by smart contracts on the Arc blockchain. The API indexes those contracts and serves a few paid endpoints. We do not hold, transmit or control your funds at any point. We are not a bank, a money transmitter, a payment processor or an exchange.</p>
+
+  <h2>2. Your wallet and your keys</h2>
+  <p>You are responsible for your wallet, your private keys, your passkeys and anything signed with them. We can't recover keys, reverse transactions or freeze funds. If you lose a key or sign something you didn't mean to, we can't undo it.</p>
+
+  <h2>3. The contracts are final</h2>
+  <p>Transactions on Arc are irreversible. A payment sent to the wrong address, a scheduled send created without the reclaim option, or a split with the wrong percentages can't be corrected by us or by anyone. Check what you're signing before you sign it.</p>
+
+  <h2>4. Fees</h2>
+  <p>The ArcPayRouter contract takes a protocol fee on each payment, currently 0.5% and capped at 1% in the contract code. Minting a .agent name costs 1 USDC. Gas on Arc is paid in USDC by the sender. Fees are shown before you sign and may change; the cap can't.</p>
+
+  <h2>5. .agent names</h2>
+  <p>A .agent name is an ERC-721 token on Arc. Owning the token means receiving USDC sent to that name until you transfer it. Names are first come, first served; a short list of names is reserved for the project. Names are not domain names and have no relationship to DNS, ICANN or Unstoppable Domains. We don't arbitrate disputes over names.</p>
+
+  <h2>6. Paid API endpoints</h2>
+  <p>api.zunivo.io serves endpoints that answer HTTP 402 and deliver data after payment. Data is provided as-is from our own index and from third-party sources, may be delayed or wrong, and is not financial advice. A payment buys one response; if the endpoint fails after payment, email us with the transaction hash and we'll sort it out.</p>
+
+  <h2>7. Acceptable use</h2>
+  <p>Don't use the service for anything illegal where you are, to launder money, to evade sanctions, or to attack the service or its users. Don't scrape the API at a rate that degrades it for others. We may block addresses or IP ranges from the API and the app to protect the service; we can't block anyone from the contracts.</p>
+
+  <h2>8. No warranty</h2>
+  <p>The service is provided as-is. The contracts have been reviewed and tested but have not had an independent third-party audit. Software has bugs. Use it with amounts you can afford to lose until you've satisfied yourself that it works the way you expect.</p>
+
+  <h2>9. Limitation of liability</h2>
+  <p>To the extent permitted by law, we are not liable for any loss arising from your use of the service, including loss of funds, lost profits or data, whether caused by bugs, chain outages, wallet issues, third-party services or your own mistakes. Where liability can't be excluded, it is limited to the fees you paid us in the 12 months before the claim.</p>
+
+  <h2>10. Changes</h2>
+  <p>We may change these terms. The date at the top tells you when. Material changes will be announced on the site. Continuing to use the service after a change means you accept it.</p>
+
+  <h2>11. Governing law</h2>
+  <p>These terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable there. Disputes go to the courts of Ontario.</p>
+
+  <h2>12. Contact</h2>
+  <p><a href="mailto:contact@zunivo.io">contact@zunivo.io</a></p>
+</div></section>
+<footer><div class="wrap">
+  <div class="cols">
+    <a href="https://app.zunivo.io/">App</a>
+    <a href="https://docs.zunivo.io">Docs</a>
+    <a href="https://github.com/zunivo-pay">GitHub</a>
+    <a href="https://www.npmjs.com/package/zunivo-x402-arc">npm</a>
+    <a href="https://x.com/zunivo_io">X</a>
+    <a href="https://discord.com/invite/hyqd3rSFR6">Discord</a>
+    <a href="/about">About</a>
+    <a href="/terms">Terms</a>
+    <a href="/privacy">Privacy</a>
+    <a href="mailto:contact@zunivo.io">contact@zunivo.io</a>
+  </div>
+  <div>© 2026 zunivo. Non-custodial software, not a money transmitter.</div>
+</div></footer>
+</body>
+</html>

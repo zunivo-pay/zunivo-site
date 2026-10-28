@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About zunivo</title>
+<meta name="description" content="Who builds zunivo and how to reach them." />
+<link rel="canonical" href="https://zunivo.io/about" />
+<meta property="og:title" content="About zunivo" />
+<meta property="og:description" content="Who builds zunivo and how to reach them." />
+<meta property="og:image" content="https://zunivo.io/og.png" />
+<meta property="og:url" content="https://zunivo.io/about" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="/"><svg viewBox="0 0 152 112" aria-hidden="true"><rect x="20" y="20" width="72" height="14" rx="7" fill="#2f4fd6"/><line x1="82" y1="41" x2="30" y2="81" stroke="#0b7a52" stroke-width="14" stroke-linecap="round"/><rect x="20" y="88" width="72" height="14" rx="7" fill="#2f4fd6"/></svg>zunivo</a>
+  <nav>
+    <a href="/#agents">Agents</a>
+    <a href="/#app" class="hide">App</a>
+    <a href="/#contracts">Contracts</a>
+    <a href="https://docs.zunivo.io">Docs</a>
+    <a href="/about" class="hide">About</a>
+    <a class="cta" href="https://app.zunivo.io/">Launch app</a>
+  </nav>
+</div></header>
+
+<section class="doc"><div class="wrap">
+  <h1>About</h1>
+  <p class="meta">Updated October 2026</p>
+  <p>zunivo is built and run by one person in Toronto, Canada. It started in July 2026 on the Arc testnet and moved to mainnet the day Arc opened, September 16, 2026.</p>
+  <p>The idea is narrow on purpose: let a program pay for an API call the way a person pays for a coffee, without an account, a card or someone clicking approve. Arc settles in USDC and in about a second, which makes that practical.</p>
+  <h2>What exists today</h2>
+  <ul>
+    <li>Five contracts on Arc mainnet, source verified, 91 tests. <a href="https://github.com/zunivo-pay/zunivo-contracts">zunivo-contracts</a></li>
+    <li>An Express middleware and an agent client for x402. <a href="https://www.npmjs.com/package/zunivo-x402-arc">zunivo-x402-arc</a></li>
+    <li>An MCP server so Claude and other MCP clients can pay for things. <a href="https://www.npmjs.com/package/zunivo-mcp">zunivo-mcp</a></li>
+    <li>The app at <a href="https://app.zunivo.io">app.zunivo.io</a> for payment links, names, scheduled sends and splits.</li>
+    <li>Three paid endpoints listed on the Circle Agent Marketplace, served from <code>api.zunivo.io</code>.</li>
+  </ul>
+  <h2>What doesn't exist yet</h2>
+  <ul>
+    <li>A company. zunivo is currently operated as an individual project; incorporation is in progress.</li>
+    <li>An independent audit. The contracts have an internal review and a test suite; a third-party audit is planned.</li>
+    <li>A multisig. The contract owner key is a single key for now.</li>
+  </ul>
+  <p>These are listed because you should know them before putting real money through the contracts.</p>
+  <h2>Contact</h2>
+  <p>Email <a href="mailto:contact@zunivo.io">contact@zunivo.io</a>. Bugs and questions about the code go to <a href="https://github.com/zunivo-pay">GitHub</a>. There is also a <a href="https://discord.com/invite/hyqd3rSFR6">Discord</a> and <a href="https://x.com/zunivo_io">@zunivo_io</a> on X.</p>
+</div></section>
+<footer><div class="wrap">
+  <div class="cols">
+    <a href="https://app.zunivo.io/">App</a>
+    <a href="https://docs.zunivo.io">Docs</a>
+    <a href="https://github.com/zunivo-pay">GitHub</a>
+    <a href="https://www.npmjs.com/package/zunivo-x402-arc">npm</a>
+    <a href="https://x.com/zunivo_io">X</a>
+    <a href="https://discord.com/invite/hyqd3rSFR6">Discord</a>
+    <a href="/about">About</a>
+    <a href="/terms">Terms</a>
+    <a href="/privacy">Privacy</a>
+    <a href="mailto:contact@zunivo.io">contact@zunivo.io</a>
+  </div>
+  <div>© 2026 zunivo. Non-custodial software, not a money transmitter.</div>
+</div></footer>
+</body>
+</html>

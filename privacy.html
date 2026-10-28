@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy · zunivo</title>
+<meta name="description" content="What zunivo collects, what it doesn't, and how to reach us." />
+<link rel="canonical" href="https://zunivo.io/privacy" />
+<meta property="og:title" content="Privacy Policy · zunivo" />
+<meta property="og:description" content="What zunivo collects, what it doesn't, and how to reach us." />
+<meta property="og:image" content="https://zunivo.io/og.png" />
+<meta property="og:url" content="https://zunivo.io/privacy" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="/"><svg viewBox="0 0 152 112" aria-hidden="true"><rect x="20" y="20" width="72" height="14" rx="7" fill="#2f4fd6"/><line x1="82" y1="41" x2="30" y2="81" stroke="#0b7a52" stroke-width="14" stroke-linecap="round"/><rect x="20" y="88" width="72" height="14" rx="7" fill="#2f4fd6"/></svg>zunivo</a>
+  <nav>
+    <a href="/#agents">Agents</a>
+    <a href="/#app" class="hide">App</a>
+    <a href="/#contracts">Contracts</a>
+    <a href="https://docs.zunivo.io">Docs</a>
+    <a href="/about" class="hide">About</a>
+    <a class="cta" href="https://app.zunivo.io/">Launch app</a>
+  </nav>
+</div></header>
+
+
+<section class="doc"><div class="wrap">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective October 28, 2026</p>
+  <p>This covers zunivo.io, app.zunivo.io and api.zunivo.io, operated by an individual based in Toronto, Canada. Short version: we don't have accounts, we don't ask for your name or email to use the product, and most of what the product does is on a public blockchain.</p>
+
+  <h2>What we don't collect</h2>
+  <p>No accounts, no sign-up, no email to use the app, no cookies for tracking, no analytics scripts, no advertising pixels. The app doesn't ask for your private key and we never see it.</p>
+
+  <h2>What is public by nature</h2>
+  <p>Everything you do through the contracts (payments, names, scheduled sends, splits, agent records) is recorded on the Arc blockchain and is visible to anyone, forever. Wallet addresses are pseudonymous but can be linked to you by other means. Treat on-chain activity as public.</p>
+
+  <h2>What our server stores</h2>
+  <ul>
+    <li>An index of events from our contracts (payments, names, records), which is a copy of public chain data.</li>
+    <li>Orders created through the app or the API: an id, the recipient address, the amount and an optional memo you typed. Memos are shown to the payer and stored in plain text. Don't put secrets in a memo.</li>
+    <li>API keys you create, stored as hashes.</li>
+    <li>Standard web server logs: IP address, request path, user agent, timestamp. We use them to debug and to rate-limit abuse. They are kept for up to 30 days.</li>
+  </ul>
+
+  <h2>What stays in your browser</h2>
+  <p>The app keeps a few things in your browser's local storage: your contact list, your recent recipients, your preferred wallet, your primary name and, if you use passkey pay, a reference to your passkey credential. None of that is sent to us. Clearing site data removes it.</p>
+
+  <h2>Third parties</h2>
+  <ul>
+    <li>Arc RPC nodes see the requests the app makes to read the chain and to send transactions.</li>
+    <li>Circle Modular Wallets, if you pay with a passkey, under Circle's privacy policy.</li>
+    <li>WalletConnect, if you connect a mobile wallet, under their policy.</li>
+    <li>Vercel hosts the website and app and sees request logs. Our API runs on a server we rent.</li>
+  </ul>
+
+  <h2>Email</h2>
+  <p>If you email contact@zunivo.io we keep the email to reply to you. We don't add you to a list.</p>
+
+  <h2>Your rights</h2>
+  <p>You can ask what we hold about an address or an email, and ask us to delete server-side data such as orders and logs. We can't delete anything from the blockchain. Email <a href="mailto:contact@zunivo.io">contact@zunivo.io</a>.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the date at the top changes with it.</p>
+</div></section>
+<footer><div class="wrap">
+  <div class="cols">
+    <a href="https://app.zunivo.io/">App</a>
+    <a href="https://docs.zunivo.io">Docs</a>
+    <a href="https://github.com/zunivo-pay">GitHub</a>
+    <a href="https://www.npmjs.com/package/zunivo-x402-arc">npm</a>
+    <a href="https://x.com/zunivo_io">X</a>
+    <a href="https://discord.com/invite/hyqd3rSFR6">Discord</a>
+    <a href="/about">About</a>
+    <a href="/terms">Terms</a>
+    <a href="/privacy">Privacy</a>
+    <a href="mailto:contact@zunivo.io">contact@zunivo.io</a>
+  </div>
+  <div>© 2026 zunivo. Non-custodial software, not a money transmitter.</div>
+</div></footer>
+</body>
+</html>
