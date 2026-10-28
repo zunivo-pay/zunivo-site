@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Zunivo — the payment layer for AI agents on Arc</title>
-<meta name="description" content="The payment layer for AI agents on Arc. Agents pay for APIs, data, and each other in USDC — settled on-chain in under a second. Humans get the same rails: links, names, splits." />
-<meta property="og:title" content="Zunivo — the payment layer for AI agents on Arc" />
-<meta property="og:description" content="The payment layer for AI agents on Arc. Machines pay for what they use, in USDC, on-chain. Humans share the same rails." />
+<meta name="description" content="USDC payments on Arc for AI agents and the people who run them. An agent hits a paid API, gets a 402, pays, gets the data. Payment links, .agent names, scheduled sends and splits for humans. Non-custodial." />
+<meta property="og:title" content="Zunivo · USDC payments for AI agents on Arc" />
+<meta property="og:description" content="Agents pay for APIs over HTTP 402 in USDC. People get payment links, .agent names, scheduled sends and splits. Five verified contracts on Arc mainnet." />
 <meta property="og:image" content="https://zunivo.io/og.png" />
 <meta property="og:url" content="https://zunivo.io" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -194,9 +194,9 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
     <span class="word">zunivo</span>
     <nav class="links">
       <a href="#verbs">Product</a>
-      <a href="#machine">Machines</a>
+      <a href="#machine">For agents</a>
       <a href="#names">Names</a>
-      <a href="#trust">Trust</a>
+      <a href="#trust">Contracts</a>
       <a href="https://docs.zunivo.io" target="_blank" rel="noreferrer">Docs</a>
       <a href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">GitHub</a>
       <a class="btn" href="https://app.zunivo.io/">Launch app</a>
@@ -210,15 +210,14 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
   <div class="fluid f-mint b" style="width:480px;height:480px;top:220px;right:280px;opacity:.8"></div>
   <div class="fluid f-peach c" style="width:520px;height:520px;bottom:-220px;left:-160px"></div>
   <div class="wrap">
-    <span class="tag">zunivo · the payment layer for ai agents on arc</span>
-    <h1>AI agents can think.<br />Now they can <em>pay.</em></h1>
-    <p class="sub">Every payment rail on earth assumes a human clicking "confirm." Zunivo doesn't.
-      On Arc, an <b>AI agent</b> discovers a service, pays for it in USDC, and gets a receipt —
-      no card, no human, one function call. And the same rails work beautifully for people:
-      payment links, <b>.agent</b> names, committed sends, atomic splits. Non-custodial by construction.</p>
+    <span class="tag">zunivo · usdc payments on arc</span>
+    <h1>Let your agent<br />pay for <em>things.</em></h1>
+    <p class="sub">An agent calls a paid API, gets a 402 with a price, pays it in USDC on Arc and gets the data. No card, no account.
+      The same contracts work for people too: payment links, <b>.agent</b> names, scheduled sends, splits.
+      Money goes from payer to recipient in one transaction. We never hold it.</p>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/zunivo-pay">See an agent pay (402)</a>
-      <a class="btn ghost" href="https://app.zunivo.io/">Try the human side</a>
+      <a class="btn primary" href="https://docs.zunivo.io">Add a 402 to your API</a>
+      <a class="btn ghost" href="https://app.zunivo.io/">Open the app</a>
     </div>
     <p class="hero-note">live on arc mainnet · five verified contracts · <a href="https://testnet.zunivo.io/" target="_blank" rel="noreferrer">testnet sandbox ↗</a> · <a href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">open source ↗</a></p>
 
@@ -276,10 +275,10 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat rv"><div class="n">0.4<i>s</i></div><p>{ median settlement, deterministic }</p></div>
-  <div class="stat rv"><div class="n">4</div><p>{ verified zero-custody contracts }</p></div>
-  <div class="stat rv"><div class="n">≤1<i>%</i></div><p>{ protocol fee, hard-capped in code }</p></div>
-  <div class="stat rv"><div class="n">0</div><p>{ custody — atomic payer → recipient }</p></div>
+  <div class="stat rv"><div class="n">0.4<i>s</i></div><p>{ typical time to settle }</p></div>
+  <div class="stat rv"><div class="n">5</div><p>{ verified contracts, none hold funds }</p></div>
+  <div class="stat rv"><div class="n">≤1<i>%</i></div><p>{ fee cap, set in the contract }</p></div>
+  <div class="stat rv"><div class="n">0</div><p>{ balance we hold for you }</p></div>
 </div>
 
 <!-- MACHINE -->
@@ -287,20 +286,16 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
   <div class="fluid f-mint a" style="width:640px;height:640px;bottom:-200px;left:-180px"></div>
   <div class="fluid f-indigo c" style="width:520px;height:520px;top:-120px;right:-160px;opacity:.75"></div>
   <div class="wrap">
-    <span class="tag rv">the core · machine payments</span>
-    <h2 class="rv">The first payment rail<br />built for machines</h2>
-    <p class="lead rv">Cards need a cardholder. Bank rails need a person. None of them can serve the millions of
-      AI agents now calling paid APIs, metering usage by request, and trading services with each other.
-      Zunivo is built for exactly this: an agent hits a priced endpoint, pays in USDC over HTTP 402,
-      and retries with proof — discover, pay, consume, all autonomous. Three lines of code turn any API into
-      something a machine can pay for. Every call leaves a settled, auditable on-chain receipt.</p>
+    <span class="tag rv">for agents</span>
+    <h2 class="rv">Paid APIs that<br />an agent can use</h2>
+    <p class="lead rv">Cards and bank transfers need a person to approve them. An agent calling an API a thousand times a day can't do that.
+      With zunivo the endpoint answers HTTP 402 with a price, the agent pays it from its own wallet, retries with the tx hash and gets the response.
+      Adding the 402 to your Express app is one middleware. Every paid call has a transaction on Arc you can look up.</p>
     <div class="term rv">
       <div class="term-bar"><span class="ref">zunivo.runtime | ref-402</span><em>agent · arc mainnet</em></div>
       <div class="term-body" id="termBody"><span class="cursor"></span></div>
     </div>
-    <p class="after rv">Every line above is a real flow running on Arc mainnet today — an autonomous agent
-      discovering a price, paying from its own wallet, collecting an auditable receipt.
-      No card networks. No human in the loop.</p>
+    <p class="after rv">This is the actual flow on mainnet, not a mockup. Try it yourself: <code>curl https://api.zunivo.io/x402/arc-pulse</code> returns a 402 you can pay.</p>
   </div>
 </section>
 
@@ -308,32 +303,32 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
 <section id="verbs">
   <div class="fluid f-peach b" style="width:560px;height:560px;top:-140px;right:-200px;opacity:.7"></div>
   <div class="wrap">
-    <span class="tag rv">the human side · one network, four verbs</span>
-    <h2 class="rv">And humans get<br />the same rails</h2>
-    <p class="lead rv">Each verb is its own verified contract — small enough to read, strong enough to promise.</p>
+    <span class="tag rv">for people</span>
+    <h2 class="rv">Four things you can do<br />in the app</h2>
+    <p class="lead rv">Each one is a separate contract. They are short, you can read them, and they are verified on ArcScan.</p>
     <div class="verbs rv">
       <a class="verb" href="https://app.zunivo.io/">
         <span class="no">//01</span>
         <h3>Get paid</h3>
-        <p>Links, QR codes, machine-issued invoices. Any wallet pays — or no wallet at all, with a passkey and Face ID.</p>
+        <p>Make a payment link or a QR code. The payer can use any wallet, or a passkey if they don't have one.</p>
         <span class="more">Create a link</span>
       </a>
       <a class="verb" href="https://app.zunivo.io/send">
         <span class="no">//02</span>
         <h3>Send</h3>
-        <p>Pay anyone by name or address, settled in under a second, with a receipt both sides keep.</p>
+        <p>Pay a .agent name or a 0x address. Settles in about a second. Both sides get a receipt in their dashboard.</p>
         <span class="more">Send now</span>
       </a>
       <a class="verb" href="https://app.zunivo.io/send">
         <span class="no">//03</span>
         <h3>Commit</h3>
-        <p>Payroll-grade scheduled sends: locked on-chain until a date, irrevocable once made. The recipient watches the countdown — not even Zunivo can touch it.</p>
+        <p>Lock a payment until a date. Once it's locked nobody can pull it back, including us. The recipient sees the countdown in their dashboard.</p>
         <span class="more">Schedule</span>
       </a>
       <a class="verb" href="https://app.zunivo.io/">
         <span class="no">//04</span>
         <h3>Split</h3>
-        <p>One payment, divided atomically between up to 20 recipients on immutable terms. Everyone gets their cut and their receipt.</p>
+        <p>One payment, split between 2 to 20 addresses in the same transaction. The percentages can't be changed after the link is made.</p>
         <span class="more">Create a split</span>
       </a>
     </div>
@@ -348,10 +343,9 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
   <div class="wrap names-grid">
     <div>
       <span class="tag rv">identity</span>
-      <h2 class="rv">Own your<br />payment name</h2>
-      <p class="lead rv"><b style="color:var(--ink)">yourname.agent</b> is an NFT on Arc — fully on-chain art and
-        metadata, tradable, and it routes USDC to whoever holds it. Payments follow the name, not the wallet:
-        sell the name, and the revenue moves with it. Mint for 1 USDC.</p>
+      <h2 class="rv">A name people<br />can pay</h2>
+      <p class="lead rv"><b style="color:var(--ink)">yourname.agent</b> is an ERC-721 on Arc. Whoever holds it receives the USDC sent to that name,
+        so if you sell or transfer the name the payments go with it. The image and metadata are stored in the contract, not on a server. 1 USDC to mint.</p>
       <div class="cta rv" style="margin-top:30px">
         <a class="btn primary" href="https://app.zunivo.io/names">Search a name</a>
       </div>
@@ -367,11 +361,10 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
 <!-- TRUST -->
 <section id="trust">
   <div class="wrap">
-    <span class="tag rv">don't trust our word</span>
-    <h2 class="rv">Read the contracts.</h2>
-    <p class="lead rv">Zunivo's rails are five small, verified contracts — settlement, identity, commitment, splits, and agent service discovery.
-      Payments pass through atomically; committed sends sit in keyless code with no admin path.
-      There is nothing for anyone — including us — to hack, freeze, or run away with.</p>
+    <span class="tag rv">contracts</span>
+    <h2 class="rv">What's actually on chain</h2>
+    <p class="lead rv">Five contracts: settlement, names, scheduled sends, splits and agent records. Payments pass straight through to the recipient.
+      Locked sends sit in a contract that has no owner function to move them. There is no pooled balance for anyone to drain, including us.</p>
     <div class="registry rv">
       <div class="rrowc"><span class="ref">ref. 01 <b>· verified</b></span><span>ArcPayRouter — order-bound settlement</span>
         <a class="mono" href="https://arc.etherscan.io/address/0xAa8c293495446d04a51A32e2e4557EDE3BfC7119" target="_blank" rel="noreferrer">0xAa8c…7119 ↗</a></div>
@@ -394,25 +387,22 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
 <section id="faq">
   <div class="wrap">
     <span class="tag rv">questions</span>
-    <h2 class="rv">Fair questions,<br />straight answers</h2>
+    <h2 class="rv">Questions</h2>
     <details class="rv"><summary>Do you ever hold my money?</summary>
-      <p>No. Payments move payer → recipient in one atomic transaction; committed sends sit in a contract with no
-      admin functions — not even we can move them. There is no pooled balance anywhere.</p></details>
+      <p>No. A payment goes from the payer to the recipient inside one transaction. A locked send sits in the ScheduledSends contract,
+      which has no function that lets us move it. There is no balance held on your behalf anywhere.</p></details>
     <details class="rv"><summary>Can a scheduled send really never be taken back?</summary>
-      <p>If it was created in committed mode — correct. Before unlock, no function exists that can move it:
-      not for the sender, not for the recipient, not for Zunivo. After unlock, release is permissionless but
-      funds can only flow to the recipient fixed at creation. Enforced by code you can read, proven by our
-      public test suite.</p></details>
+      <p>If you created it without the reclaim option, correct. Before the unlock time nothing can move it, not the sender, not us.
+      After unlock anyone can call release, but the money can only go to the recipient set at creation. The tests for this are in the repo.</p></details>
     <details class="rv"><summary>Can split percentages be changed after a link is shared?</summary>
-      <p>Never. A split's payee table is immutable from the moment it's created — the terms your collaborators
-      saw are the terms that execute, forever. Need different shares? Create a new split.</p></details>
+      <p>No. The list of recipients and percentages is written once when the split is created and the contract has no function to edit it.
+      If you need different shares, make a new split.</p></details>
     <details class="rv"><summary>Is a .agent name a real domain?</summary>
-      <p>It's better for payments: an on-chain NFT that routes USDC to whoever holds it. Not a DNS domain —
-      a payment identity, tradable like any NFT, with art and metadata that live entirely on-chain. Zunivo names are native to the Zunivo network on Arc and are not affiliated with Unstoppable Domains' .agent TLD or any DNS/ICANN registry.</p></details>
-    <details class="rv"><summary>What do machines get out of this?</summary>
-      <p>An API that issues orders, a 402 paywall any endpoint adopts in three lines, and settlement proofs for
-      every call. An agent can discover a price, pay from its own wallet, and collect a receipt — no cards,
-      no humans.</p></details>
+      <p>No, it's not DNS. It's an NFT on Arc that resolves to a payout address, and you can transfer or sell it like any NFT.
+      It has nothing to do with Unstoppable Domains' .agent TLD or any ICANN registry.</p></details>
+    <details class="rv"><summary>What does an agent actually get?</summary>
+      <p>A way to pay for an API call without a human approving it. The server returns 402 with a price, the agent's wallet pays it on Arc,
+      the server checks the tx and returns the data. The SDK handles the 402, the payment and the retry; the MCP server does the same for Claude and other desktop agents.</p></details>
     <details class="rv"><summary>What does it cost?</summary>
       <p>Gas on Arc is a fraction of a cent, paid in USDC. The protocol fee is hard-capped at 1% in immutable
       code and is currently 0.5% on mainnet (0% on the testnet sandbox). A <code>.agent</code> name is 1 USDC on mainnet.</p></details>
@@ -427,7 +417,7 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
   <div class="wrap">
     <span class="tag rv">start now</span>
     <h2 class="rv">Get paid. Send.<br />Commit. Split.</h2>
-    <p class="rv">All on rails you can read — live on Arc mainnet today, non-custodial by construction.</p>
+    <p class="rv">On Arc mainnet now. Testnet is still up if you want to try it with fake money first.</p>
     <div class="cta rv" style="justify-content:center">
       <a class="btn primary" href="https://app.zunivo.io/">Launch the app</a>
       <a class="btn ghost" href="https://github.com/zunivo-pay" target="_blank" rel="noreferrer">Read the code</a>
@@ -439,7 +429,7 @@ footer{background:var(--ink);color:#B9BFCC;padding:64px 0 56px;font-size:14px}
   <div class="wrap fgrid">
     <div class="fcol fbrand">
       <svg width="30" height="22" viewBox="0 0 152 112" aria-hidden="true"><rect x="20" y="20" width="72" height="14" rx="7" fill="#3D5AFE"/><line x1="82" y1="41" x2="30" y2="81" stroke="#10C48B" stroke-width="14" stroke-linecap="round"/><circle cx="30" cy="81" r="5" fill="#0B8F63"/><rect x="20" y="88" width="72" height="14" rx="7" fill="#3D5AFE"/></svg>
-      <p>Programmable USDC revenue on Arc. Non-custodial software, not a money transmitter.</p>
+      <p>USDC payments on Arc. Non-custodial software, not a money transmitter.</p>
     </div>
     <div class="fcol">
       <h4>product</h4>
